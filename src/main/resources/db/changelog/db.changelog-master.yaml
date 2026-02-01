@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/create-users.yaml
+  - include:
+      file: db/changelog/create-documents.yaml
+  - include:
+      file: db/changelog/create-document-history.yaml
+  - include:
+      file: db/changelog/create-approval-registry.yaml
+#  - include:
+#      file: db/changelog/indexes.yaml

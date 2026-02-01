@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-documents
+      author: lonovojvladimir
+      changes:
+        - createTable:
+            tableName: documents
+            columns:
+              - column:
+                  name: document_id
+                  type: NUMERIC
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: doc_number
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: users_id
+                  type: NUMERIC
+                  constraints:
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: NUMERIC
+                  constraints:
+                    nullable: false
+
+#        - addForeignKeyConstraint:
+#            baseTableName: documents
+#            baseColumnNames: author_id
+#            referencedTableName: users
+#            referencedColumnNames: id
+#            constraintName: fk_documents_author

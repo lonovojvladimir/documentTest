@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-index-document-status-updated
+      author: lonovojvladimir
+      changes:
+        - createIndex:
+            tableName: document
+            indexName: idx_documents_status_updated
+            columns:
+              - column:
+                  name: status
+              - column:
+                  name: updated

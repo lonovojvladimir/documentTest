@@ -31,3 +31,44 @@ databaseChangeLog:
                   type: TIMESTAMP
                   constraints:
                     nullable: false
+  - changeSet:
+      id: create-users-seq
+      author: lonovojvladimir
+      changes:
+        - createSequence:
+            sequenceName: users_seq
+            startValue: 1
+            incrementBy: 1
+
+  - changeSet:
+      id: insert-system-user
+      author: lonovojvladimir
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: users_id
+                  valueNumeric: 1
+              - column:
+                  name: login
+                  value: system
+              - column:
+                  name: last_name
+                  value: system
+              - column:
+                  name: first_name
+                  value: system
+              - column:
+                  name: middle_name
+                  value: system
+              - column:
+                  name: created
+                  valueDate: 2026-02-13T00:00:00
+
+  - changeSet:
+      id: sync-users-seq
+      author: lonovojvladimir
+      changes:
+        - sql:
+            sql: SELECT setval('users_seq', (SELECT MAX(users_id) FROM users));

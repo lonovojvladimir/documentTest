@@ -28,6 +28,15 @@ databaseChangeLog:
                   constraints:
                     nullable: false
 
+  - changeSet:
+      id: create-approval-registry-seq
+      author: lonovojvladimir
+      changes:
+        - createSequence:
+            sequenceName: approval_registry_seq
+            startValue: 1
+            incrementBy: 1
+
 #        - addForeignKeyConstraint:
 #            baseTableName: approval_registry
 #            baseColumnNames: document_id

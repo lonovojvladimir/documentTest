@@ -13,3 +13,21 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yaml
+
+generator:
+  api:
+    base-url: http://localhost:8080/document
+  users-id: 1
+  count: 100
+
+logging:
+  level:
+    root: INFO
+    com.yourpackage.generator: DEBUG
+
+workers:
+  batch-size: 50
+  submit:
+    delay-ms: 10000
+  approve:
+    delay-ms: 15000
